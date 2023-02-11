@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
 import { notFound } from "next/navigation";
-import MovieContainer from '@/containers/movie';
-import Movies from "@/mocks/movies.json"
+import MovieContainer from "@/containers/movie";
+import { getMovie } from "@/services/movie";
 
-function MoviePage({ params }) {
-  const movieDetail = Movies.results.find((movie) => movie.id.toString() === params.id)
+async function MoviePage({ params }) {
+  const movieDetail = await getMovie(params.id);
 
-  if(!movieDetail) {
+
+  if (!movieDetail) {
     notFound();
   }
-  return <MovieContainer movie={movieDetail}/>;
+  return <MovieContainer movie={movieDetail} />;
 }
 
-export default MoviePage
+export default MoviePage;

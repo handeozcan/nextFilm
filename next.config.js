@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   experimental: {
     appDir: true,
   },
+  images: {
+    disableStaticImages: true
+  }
+
 }
 
-module.exports = nextConfig
