@@ -14,7 +14,7 @@ function HomeContainer({ topRatedMovies = [],popularMovies=[], categories =[], s
           <MoviesSection
             title={categories.find(
               (genre) => `${genre.id}` === selectedCategory.id
-            ).name}
+            )?.name}
             movies={selectedCategory.movies}
           />
         )}
